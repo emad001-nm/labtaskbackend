@@ -23,6 +23,8 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
+                        // CRITICAL: Allow CORS preflight (OPTIONS) — MUST be first
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         // Allow read-only access to books without auth (for frontend demo)
                         .requestMatchers(HttpMethod.GET, "/api/books/**").permitAll()
                         // Allow create/update/delete only for authenticated users
