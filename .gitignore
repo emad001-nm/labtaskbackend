@@ -1,4 +1,27 @@
+# =========================================================
+# BorrowBox .gitignore
+# =========================================================
+
+### Local config with secrets (⚠️ CRITICAL) ###
+**/application-local.properties
+**/application-local.yml
+**/application-local.yaml
+**/application-dev.properties
+**/application-secret.properties
+
+### Env files ###
+.env
+.env.*
+!.env.example
+
+### Logs ###
+*.log
+logs/
+
+### HELP.md
 HELP.md
+
+### Maven ###
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -31,3 +54,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### OS ###
+.DS_Store
+Thumbs.db
